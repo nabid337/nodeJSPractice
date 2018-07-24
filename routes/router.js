@@ -25,7 +25,7 @@ router.route('/logout').get(logOutCtrl.getLogOut);
 router.post('/', function (req, res, next) {
   console.log("test");
    if (req.body.logemail && req.body.logpassword) {
-    User.authenticate(req.body.username, req.body.logpassword, function (error, user) {
+    User.authenticate(req.body.logemail, req.body.logpassword, function (error, user) {
       if (error || !user) {
         var err = new Error('Wrong email or password.');
         err.status = 401;
